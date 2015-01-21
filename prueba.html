@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Prueba</title>
+  <script>
+    addEventListener('load',setListener,false);
+    
+    function setListener()
+    {
+      document.getElementById('height').addEventListener('change',sizeChange,false);
+      document.getElementById('width').addEventListener('change',sizeChange,false);
+    }
+
+    function sizeChange()
+    {    
+    	var _height = document.getElementById('height').value.toString();
+      var _width = document.getElementById('width').value.toString();
+      
+      document.getElementById('heightMessage').innerHTML=_height.concat("px");
+      document.getElementById('widthMessage').innerHTML=_width.concat("px");
+
+      document.getElementById('image').height=document.getElementById('height').value;
+      document.getElementById('image').width=document.getElementById('width').value;
+
+    }
+</script>  
+</head>
+
+<body>
+  <form action="#">
+      <p>Select the image size:</p>
+      <p>Height:
+        <input type="range" id="height" min="50" max="1000" value="100"/>
+        <span id="heightMessage">100px</span>
+      </p>
+      <p>Width:
+        <input type="range" id="width" min="50" max="1000" value="100"/>
+        <span id="widthMessage">100px</span>
+      </p>
+  </form>
+
+  <img id="image" src="img/gnu_amigable.jpg" width="100px" height="100px" alt="gnu" />
+</body>
+</html>
